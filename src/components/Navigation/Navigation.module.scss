@@ -1,0 +1,12 @@
+.list {
+    color: #0ab8b6;
+
+    li a {
+        transition: opacity .3s ease-out;
+
+        &:hover {
+            opacity: .7;
+        }
+    }
+
+}
