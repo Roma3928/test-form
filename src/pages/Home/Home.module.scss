@@ -1,0 +1,17 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-family: 'Passion One', sans-serif;
+    line-height: 40px;
+    font-size: 40px;
+    text-align: center;
+
+    @media (max-width: 576px) {
+        font-size: 30px;
+        line-height: 32px;
+    }
+}

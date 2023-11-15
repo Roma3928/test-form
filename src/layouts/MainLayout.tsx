@@ -6,7 +6,11 @@ const MainLayout: FC = () => {
   return (
     <div className="wrapper">
       <Header />
-      <Outlet />
+      <main className="main">
+        <div className="container">
+          <Outlet />
+        </div>
+      </main>
     </div>
   );
 };

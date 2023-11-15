@@ -1,7 +1,7 @@
-import Main from '../pages/Main';
-// import Erorr from '../pages/Error';
-// import BookPage from '../pages/BookPage/BookPage';
+import Home from '../pages/Home';
+import Erorr from '../pages/Error';
 import MainLayout from '../layouts/MainLayout';
+import Login from '../pages/Login';
 
 export const routes = [
   {
@@ -10,13 +10,16 @@ export const routes = [
     children: [
       {
         index: true,
-        element: <Main />,
+        element: <Home />,
       },
-
-      //   {
-      //     path: '*',
-      //     element: <Erorr />,
-      //   },
+      {
+        path: 'login',
+        element: <Login />,
+      },
+      {
+        path: '*',
+        element: <Erorr />,
+      },
     ],
   },
 ];
