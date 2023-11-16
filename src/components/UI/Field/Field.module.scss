@@ -1,0 +1,31 @@
+.inputBox {
+    background-color: #d4f7f1;
+    border-radius: 8px;
+    padding: 8px 16px 4px;
+
+    position: relative;
+
+    label {
+        font-size: 11px;
+    }
+
+    input {
+        width: 100%;
+        background-color: #d4f7f1;
+        color: #6a7c79;
+        font-size: 16px;
+        border: none;
+        outline: none;
+        padding: 4px 8px 8px 0;
+    }
+}
+
+.icon {
+    position: absolute;
+    top: 23px;
+    right: 11px;
+
+    height: 21px;
+    width: 21px;
+    cursor: pointer;
+}
