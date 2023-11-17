@@ -1,12 +1,11 @@
-import { FC, useState } from 'react';
+import { FC, forwardRef, useState } from 'react';
 import styles from './Field.module.scss';
 import { IField } from './Field.interface';
 import passwordHiddenIcon from '../../../assets/img/password-hidden-icon.svg';
 import passwordVisibleIcon from '../../../assets/img/password-visible-icon.svg';
 
-const Field: FC<IField> = ({ type, label, error }) => {
+const Field = forwardRef<HTMLInputElement, IField>(({ type, label, error, ...rest }, ref) => {
   const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
-  const [inputValue, setInputValue] = useState<string>('');
 
   const toggleVisible = () => {
     setPasswordVisible(!passwordVisible);
@@ -14,14 +13,10 @@ const Field: FC<IField> = ({ type, label, error }) => {
 
   return (
     <>
-      {error && <div>{error?.message}</div>}
+      {error && <div className={styles.error}>{error.message}</div>}
       <div className={styles.inputBox}>
         <label>{label}</label>
-        <input
-          type={passwordVisible ? 'text' : type}
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-        />
+        <input ref={ref} type={passwordVisible ? 'text' : type} {...rest} />
 
         {type === 'password' && (
           <img
@@ -34,6 +29,8 @@ const Field: FC<IField> = ({ type, label, error }) => {
       </div>
     </>
   );
-};
+});
+
+Field.displayName = 'Field';
 
 export default Field;

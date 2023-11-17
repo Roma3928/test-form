@@ -12,11 +12,15 @@ const AuthForm: FC = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm<AuthFields>({
-    mode: 'onSubmit',
+    mode: 'onChange',
   });
 
-  const onSubmit: SubmitHandler<AuthFields> = (data) => {};
+  const onSubmit: SubmitHandler<AuthFields> = (data) => {
+    console.log(data);
+    reset();
+  };
 
   return (
     <div className={styles.form}>
