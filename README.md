@@ -18,7 +18,7 @@ npm start
 
 ## Ссылка
 
-[GitHub Pages](https://roma3928.github.io/)
+[Vercel Pages](https://test-form-sooty.vercel.app/)
 
 ## Стек
 
