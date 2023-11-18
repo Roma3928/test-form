@@ -9,12 +9,12 @@ const Home: FC = () => {
   const { email } = useAuth();
 
   return (
-    <div className="content">
+    <>
       <h1 className={styles.title}>Welcome {email}! 👋</h1>
       <div className={styles.button}>
         <Button onClick={logout}>Logout</Button>
       </div>
-    </div>
+    </>
   );
 };
 
