@@ -1,17 +1,19 @@
 import { FC } from 'react';
 import styles from './Home.module.scss';
-import { redirect } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
+import Button from '../../components/UI/Button';
+import { useActions } from '../../hooks/useActions';
 
 const Home: FC = () => {
-  let isAuth = false;
-
-  // if (!isAuth) {
-  //   return redirect('/login');
-  // }
+  const { logout } = useActions();
+  const { email } = useAuth();
 
   return (
     <div className="content">
-      <h1 className={styles.title}>Welcome! 👋</h1>
+      <h1 className={styles.title}>Welcome {email}! 👋</h1>
+      <div className={styles.button}>
+        <Button onClick={logout}>Logout</Button>
+      </div>
     </div>
   );
 };

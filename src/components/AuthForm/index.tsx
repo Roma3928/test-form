@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import styles from './AuthForm.module.scss';
 import loginInIcon from '../../assets/img/logIn-icon.svg';
@@ -6,8 +6,21 @@ import Field from '../UI/Field';
 import Button from '../UI/Button';
 import { AuthFields } from './AuthForm.interface';
 import { validEmail } from './Auth.valid';
+import { useActions } from '../../hooks/useActions';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 
 const AuthForm: FC = () => {
+  const { login } = useActions();
+  const navigate = useNavigate();
+  const { isAuth } = useAuth();
+
+  useEffect(() => {
+    if (isAuth) {
+      navigate('/');
+    }
+  }, [isAuth, navigate]);
+
   const {
     register,
     formState: { errors },
@@ -18,7 +31,7 @@ const AuthForm: FC = () => {
   });
 
   const onSubmit: SubmitHandler<AuthFields> = (data) => {
-    console.log(data);
+    login(data);
     reset();
   };
 

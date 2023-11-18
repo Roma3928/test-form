@@ -1,4 +1,4 @@
-import { FC, forwardRef, useState } from 'react';
+import { forwardRef, useState } from 'react';
 import styles from './Field.module.scss';
 import { IField } from './Field.interface';
 import passwordHiddenIcon from '../../../assets/img/password-hidden-icon.svg';
